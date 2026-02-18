@@ -1,14 +1,19 @@
+/* Step 1: Global CSS Variables (:root) */
 :root {
     --font-primary: 'Montserrat', sans-serif;
     --font-secondary: 'Open Sans', sans-serif;
 
-    --color-background-light: #f9f3ed; /* Light beige/cream from screenshots */
-    --color-primary-darkblue: #1c2646; /* Dark blue from screenshots */
-    --color-accent-gold: #ca8e3c; /* Golden/Orange from screenshots */
+    /* Colors based on provided screenshots */
+    --color-background-light: #f9f3ed; /* Light beige/cream */
+    --color-primary-darkblue: #1c2646; /* Dark blue for text and dark sections */
+    --color-accent-gold: #ca8e3c; /* Golden/Orange highlight */
     --color-white: #ffffff;
     --color-black: #000000;
     --color-gray-text: #666666;
     --color-gray-border: rgba(28, 38, 70, 0.15); /* A lighter tint of dark blue for borders */
+    --color-dark-overlay: rgba(28, 38, 70, 0.7); /* Dark overlay for hero background */
+    --color-dark-overlay-strong: rgba(28, 38, 70, 0.9); /* Stronger dark overlay */
+
 
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
@@ -84,7 +89,7 @@ h3 {
 }
 
 .section-light-beige {
-    background-color: var(--color-background-light); /* Or a slightly different shade if needed */
+    background-color: var(--color-background-light);
 }
 
 .section-title {
@@ -154,12 +159,12 @@ h3 {
 
 /* Header & Navigation */
 .main-nav {
-    background-color: var(--color-primary-darkblue);
+    background-color: var(--color-white); /* Changed to white background based on new layout */
     padding: var(--spacing-md) 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-light); /* Lighter shadow */
 }
 
 .nav-content {
@@ -179,7 +184,7 @@ h3 {
 }
 
 .nav-links a {
-    color: var(--color-white);
+    color: var(--color-primary-darkblue); /* Dark blue for links */
     font-weight: 500;
     padding: var(--spacing-sm) 0;
     position: relative;
@@ -213,60 +218,78 @@ h3 {
     box-shadow: none; /* No shadow for nav CTA on hover */
 }
 
-
-/* Step 2: The Hero Section */
-.hero-section {
-    position: relative;
-    height: 600px; /* Fixed height for consistency, adjust as needed */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-image: url('https://i.imgur.com/kE7w1h0.jpg'); /* Background image from screenshot */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: var(--color-white);
+/* Automate Business Section (First Section) */
+.section-automate-business {
+    background-color: var(--color-background-light); /* Light background for this section */
+    color: var(--color-primary-darkblue);
     padding: var(--spacing-xxl) 0;
 }
 
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(28, 38, 70, 0.7), rgba(28, 38, 70, 0.9)); /* Dark overlay */
-    z-index: 1;
+.automate-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xxl);
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
+.automate-text {
+    flex: 1;
 }
 
-.hero-content h1 {
-    color: var(--color-white);
+.automate-text h2 {
+    color: var(--color-primary-darkblue);
+    font-size: 2.8rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.automate-text p {
+    font-size: 1.15rem;
+    color: var(--color-gray-text);
     margin-bottom: var(--spacing-xl);
 }
 
-.btn-hero {
-    background-color: var(--color-white);
+.automate-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.automate-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.tag {
+    background-color: var(--color-white); /* Tags are white on light background */
+    border: 1px solid var(--color-gray-border);
     color: var(--color-primary-darkblue);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+.tag i {
+    margin-right: var(--spacing-sm);
+    color: var(--color-accent-gold);
+}
+
+.automate-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.automate-image img {
+    max-width: 100%;
+    height: auto;
     border-radius: var(--border-radius-lg);
-    padding: var(--spacing-md) var(--spacing-xxl);
-    font-size: 1.1rem;
-    font-weight: 700;
-    border: 1px solid var(--color-white);
+    box-shadow: var(--shadow-md);
+    content-visibility: auto; /* Performance optimization */
 }
-
-.btn-hero:hover {
-    background-color: var(--color-primary-darkblue);
-    color: var(--color-white);
-    border-color: var(--color-primary-darkblue);
-}
-
 
 /* Platform Description Section */
 .platform-content {
@@ -302,6 +325,49 @@ h3 {
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
     content-visibility: auto; /* Performance optimization */
+}
+
+/* Features Section (IA Personalizada, Chat Automatizado, Segurança LGPD) */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.feature-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Ensure cards are same height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+    font-size: 3.5rem;
+    color: var(--color-accent-gold);
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-card p {
+    color: var(--color-gray-text);
+    font-size: 1rem;
 }
 
 /* Transform Sales Section */
@@ -360,48 +426,51 @@ h3 {
     font-size: 1.2rem;
 }
 
-/* Features Section (IA Personalizada, Chat Automatizado, Segurança LGPD) */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-}
 
-.feature-card {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-gray-border);
-    border-radius: var(--border-radius-lg);
-    padding: var(--spacing-xl);
-    text-align: center;
-    box-shadow: var(--shadow-light);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%; /* Ensure cards are same height */
+/* Clients Section */
+.clients-logos {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-lg);
 }
 
-.feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+.clients-logos img {
+    max-width: 180px; /* Adjust size of client logos */
+    height: auto;
+    filter: grayscale(80%); /* Make them subtle */
+    transition: filter 0.3s ease;
+    content-visibility: auto; /* Performance optimization */
 }
 
-.feature-icon {
-    font-size: 3.5rem;
-    color: var(--color-accent-gold);
-    margin-bottom: var(--spacing-md);
+.clients-logos img:hover {
+    filter: grayscale(0%); /* Color on hover */
 }
 
-.feature-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-md);
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-md);
 }
 
-.feature-card p {
-    color: var(--color-gray-text);
-    font-size: 1rem;
+.carousel-dots .dot {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-gray-border);
+    border-radius: 50%;
+    margin: 0 var(--spacing-sm);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+.carousel-dots .dot.active,
+.carousel-dots .dot:hover {
+    background-color: var(--color-accent-gold);
+}
+
 
 /* Pricing Section */
 .pricing-grid {
@@ -496,143 +565,59 @@ h3 {
     color: var(--color-accent-gold); /* Keep gold for Pro icon */
 }
 
-/* Clients Section */
-.clients-logos {
+
+/* Hero Section (Now the last main section) */
+.hero-section {
+    position: relative;
+    height: 600px; /* Fixed height for consistency, adjust as needed */
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: var(--spacing-xl);
-    flex-wrap: wrap;
-    margin-bottom: var(--spacing-lg);
-}
-
-.clients-logos img {
-    max-width: 180px; /* Adjust size of client logos */
-    height: auto;
-    filter: grayscale(80%); /* Make them subtle */
-    transition: filter 0.3s ease;
-    content-visibility: auto; /* Performance optimization */
-}
-
-.clients-logos img:hover {
-    filter: grayscale(0%); /* Color on hover */
-}
-
-.carousel-dots {
-    display: flex;
     justify-content: center;
-    margin-top: var(--spacing-md);
-}
-
-.carousel-dots .dot {
-    display: block;
-    width: 10px;
-    height: 10px;
-    background-color: var(--color-gray-border);
-    border-radius: 50%;
-    margin: 0 var(--spacing-sm);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.carousel-dots .dot.active,
-.carousel-dots .dot:hover {
-    background-color: var(--color-accent-gold);
-}
-
-
-/* Automate Business Section */
-.section-automate-business {
-    background-color: var(--color-primary-darkblue); /* Dark background */
+    text-align: center;
+    /* Using the image specified for the original hero (now in platform description) for the background with a dark overlay */
+    background-image: url('imagens/familia-de-vista-lateral-sentada-a-mesa.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: var(--color-white);
     padding: var(--spacing-xxl) 0;
 }
 
-.automate-content {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xxl);
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-dark-overlay), var(--color-dark-overlay-strong)); /* Dark overlay */
+    z-index: 1;
 }
 
-.automate-text {
-    flex: 1;
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
 }
 
-.automate-text h2 {
+.hero-content h1 {
     color: var(--color-white);
-    font-size: 2.8rem;
-    margin-bottom: var(--spacing-md);
-}
-
-.automate-text p {
-    font-size: 1.15rem;
-    color: rgba(255, 255, 255, 0.8);
     margin-bottom: var(--spacing-xl);
 }
 
-.automate-buttons {
-    display: flex;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-xl);
-    flex-wrap: wrap;
-}
-
-.automate-buttons .btn-primary {
-    background-color: var(--color-accent-gold);
-    color: var(--color-white);
-    padding: var(--spacing-md) var(--spacing-lg);
-    border-radius: var(--border-radius-md);
-}
-
-.automate-buttons .btn-primary:hover {
-    background-color: #e09f4a;
-}
-
-.automate-buttons .btn-outline {
-    border-color: var(--color-white);
-    color: var(--color-white);
-}
-
-.automate-buttons .btn-outline:hover {
+.btn-hero {
     background-color: var(--color-white);
     color: var(--color-primary-darkblue);
-}
-
-
-.automate-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-}
-
-.tag {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--color-white);
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: var(--border-radius-sm);
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-}
-
-.tag i {
-    margin-right: var(--spacing-sm);
-    color: var(--color-accent-gold);
-}
-
-.automate-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.automate-image img {
-    max-width: 100%;
-    height: auto;
     border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-md);
-    content-visibility: auto; /* Performance optimization */
+    padding: var(--spacing-md) var(--spacing-xxl);
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: 1px solid var(--color-white);
+}
+
+.btn-hero:hover {
+    background-color: var(--color-primary-darkblue);
+    color: var(--color-white);
+    border-color: var(--color-primary-darkblue);
 }
 
 /* Footer */
