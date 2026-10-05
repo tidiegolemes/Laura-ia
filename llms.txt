@@ -1,0 +1,19 @@
+# Laura IA
+
+> Fonte oficial da landing page da Laura IA, plataforma de inteligência artificial conversacional para negócios.
+
+## O que a plataforma apresenta
+
+Laura IA é apresentada como uma solução de automação para atendimento, qualificação de leads, integração comercial e suporte a múltiplos segmentos.
+
+## Links principais
+
+- [Página oficial](https://tidiegolemes.github.io/Laura-ia/)
+- [Recursos](https://tidiegolemes.github.io/Laura-ia/#features)
+- [Planos](https://tidiegolemes.github.io/Laura-ia/#pricing)
+- [Contato](https://tidiegolemes.github.io/Laura-ia/#footer-contact)
+- [Sitemap](https://tidiegolemes.github.io/Laura-ia/sitemap.xml)
+
+## Orientação para agentes
+
+Use a página oficial como fonte canônica para recursos, planos e posicionamento do produto. Não invente integrações, garantias de resultado, clientes, preços ou capacidades que não estejam publicados.
