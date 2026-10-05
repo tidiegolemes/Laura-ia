@@ -1,7 +1,7 @@
 /* Step 1: Global CSS Variables (:root) */
 :root {
-    --font-primary: 'Montserrat', sans-serif;
-    --font-secondary: 'Open Sans', sans-serif;
+    --font-primary: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-secondary: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
     /* Colors based on provided screenshots */
     --color-background-light: #f9f3ed; /* Light beige/cream */
@@ -272,7 +272,7 @@ h3 {
     align-items: center;
 }
 
-.tag i {
+.tag .icon-glyph {
     margin-right: var(--spacing-sm);
     color: var(--color-accent-gold);
 }
@@ -684,7 +684,7 @@ footer .footer-contact p {
     align-items: center;
 }
 
-footer .footer-contact p i {
+footer .footer-contact p .icon-glyph {
     margin-right: var(--spacing-sm);
     color: var(--color-accent-gold);
 }
